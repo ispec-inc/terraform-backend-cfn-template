@@ -1,13 +1,14 @@
 AWSTemplateFormatVersion: 2010-09-09
-Description: Create terraform backend resources
+Description: |
+  Create terraform backend resources
+  "S3: ${AppName}-terraform-state"
+  "DynamoDB: ${AppName}-state-lock"
 Parameters:
   AppName:
     Type: String
     Description: App Name
     ConstraintDescription: |
       Prefix of S3 Bucket And DynamoDB table
-      "S3: ${AppName}-terraform-state"
-      "DynamoDB: ${AppName}-state-lock"
 
 Resources:
   BackendBucket:
